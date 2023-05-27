@@ -1,0 +1,37 @@
+ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+.list-view {
+    background-color: rgb(230, 230, 230);
+}
+
+.header {
+    background-color: rgb(230, 230, 230);
+
+}
+
+.admin {
+    max-width: fit-content;
+    font-size: 25px;
+    color: white;
+    padding: 10px 15px;
+    border-radius: 30px;
+    font-weight: 400;
+}
+.input-group-text{
+    font-size: 12px;
+}
+main    {
+    background-color: rgb(230, 230, 230);
+}
+header{
+    background-color: rgb(230, 230, 230);
+
+}
+.selected-view{
+    background-color: white;   
+    border-radius: 30px;
+    padding:60px ;
+}

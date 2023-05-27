@@ -10,42 +10,64 @@
     <!-- Bootstrap CSS v5.2.1 -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
+    <!-- css file -->
+    <link rel="stylesheet" href="./assets/styles/style.css">
 </head>
 
 <body>
     <header>
-        <!-- place navbar here -->
+        <div class="container header">
+            <div class="row py-4">
+                <div class="col-12 text-center">
+                    <h2>Avenger Clicker App</h2>
+                </div>
+            </div>
+        </div>
     </header>
     <main>
         <div class="container">
+
             <div class="row">
+                <div class="col-3 list-view text-center">
 
-                <ul class="avengersList"></ul>
-                <h1 class="admin">Admin</h1>
 
-                <div class="admin-section">
-                    <div class="input-group mb-3">
-                        <span class="input-group-text" id="basic-addon1">Avenger Name</span>
-                        <input type="text" class="form-control text-capitalize name-input"
-                            placeholder="enter you custom name" aria-label="Username" aria-describedby="basic-addon1">
+                    <h1 class="admin bg-danger mx-auto">Admin</h1>
+                    <h6 class="fw-normal text-secondary text-capitalize">Change current avenger specs</h6>
+
+                    <div class="admin-section">
+                        <div class="input-group mb-3">
+                            <span class="input-group-text" id="basic-addon1">New Name</span>
+                            <input type="text" class="form-control text-capitalize name-input"
+                                placeholder="Enter new name" aria-label="Username"
+                                aria-describedby="basic-addon1">
+                        </div>
+                        <div class="input-group mb-3">
+                            <span class="input-group-text" id="basic-addon1">New URL</span>
+                            <input type="text" class="form-control text-capitalize url-input"
+                                placeholder="Enter new url" aria-label="Username"
+                                aria-describedby="basic-addon1">
+                        </div>
+                        <div class="input-group mb-3">
+                            <span class="input-group-text" id="basic-addon1">New Count</span>
+                            <input type="text" class="form-control text-capitalize count-input"
+                                placeholder="Enter new count" aria-label="Username"
+                                aria-describedby="basic-addon1">
+                        </div>
+                        <button class="btn btn-primary save-btn" type="submit">Save</button>
                     </div>
-                    <div class="input-group mb-3">
-                        <span class="input-group-text" id="basic-addon1">Avenger URL</span>
-                        <input type="text" class="form-control text-capitalize url-input"
-                            placeholder="enter you custom url" aria-label="Username" aria-describedby="basic-addon1">
-                    </div>
-                    <div class="input-group mb-3">
-                        <span class="input-group-text" id="basic-addon1">Avenger Count</span>
-                        <input type="text" class="form-control text-capitalize count-input"
-                            placeholder="enter you custom count" aria-label="Username" aria-describedby="basic-addon1">
-                    </div>
-                    <button class="btn btn-primary save-btn" type="submit">Save</button>
+                    <ul class="avengersList">
+                        <!-- Avengers List is rendered here -->
+                    </ul>
                 </div>
 
-                <img class="avenger-image">
-                <h2 class="avenger-name"></h2>
-                <h2 class="avenger-count"></h2>
+                <div class="col-9 text-center">
+                    <div class="selected-view">
+                        <img class="avenger-image rounded-4 mb-4 w-75 img-fluid">
+                        <h2 class="avenger-name"></h2>
+                        <h2 class="avenger-count"></h2>
+                    </div>
 
+                </div>
             </div>
         </div>
     </main>

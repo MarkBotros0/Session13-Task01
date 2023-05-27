@@ -5,19 +5,31 @@ var model = {
         {
             id: 1,
             name: "Spiderman",
-            url: "https://images.unsplash.com/photo-1635805737707-575885ab0820?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=687&q=80",
+            url: "./assets/images/square_thumb@3x.jpg",
             count: 0
         },
         {
             id: 2,
-            name: "Dead Pool",
-            url: "https://images.unsplash.com/photo-1608889175157-718b6205a50d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=880&q=80",
+            name: "Iron Man",
+            url: "./assets/images/sq35017__3_.jpg",
             count: 0
         },
         {
             id: 3,
             name: "Hulk",
-            url: "https://insidethemagic.net/wp-content/uploads/2019/04/resizer.php_-800x400.jpeg",
+            url: "./assets/images/marvels-avengers-square-enix-4-900x900.jpg",
+            count: 0
+        },
+        {
+            id: 4,
+            name: "Captain America",
+            url: "./assets/images/2923621-1.jpg",
+            count: 0
+        },
+        {
+            id: 5,
+            name: "Thor",
+            url: "./assets/images/thor-life-size-standee__square.jpg",
             count: 0
         }
     ],
@@ -97,7 +109,7 @@ var selectedAvengerView = {
 
 var avengersListView = {
     init: function () {
-        if (controller.getAdminViewState) {
+        if (!controller.getAdminViewState()) {
             $(".admin-section").toggle("d-none");
         }
 
@@ -115,8 +127,17 @@ var avengersListView = {
     saveAdminChangesSetup: function () {
         $(".save-btn").on('click', function () {
             var newName = $(".name-input").val()
+            if (newName == "") {
+                newName = controller.getCurrentAvenger().name
+            }
             var newUrl = $(".url-input").val()
+            if (newUrl == "") {
+                newUrl = controller.getCurrentAvenger().url
+            }
             var newCount = $(".count-input").val()
+            if (newCount == "") {
+                newCount = controller.getCurrentAvenger().count
+            }
             var id = controller.getCurrentAvenger().id
             $("#" + id).text(newName)
             controller.updateCurrentAvenger(newName, newUrl, newCount)
@@ -130,16 +151,18 @@ var avengersListView = {
     },
     render: function () {
         var avengers = controller.getAllAvengers()
-        var avengersList = $(".avengersList")
 
         for (let i = 0; i < avengers.length; i++) {
-            var listItem = $("<li id='" + avengers[i].id + "'></li>").text(avengers[i].name).css("cursor", "pointer")
+            var listItem = $("<li class='mt-3' id='" + avengers[i].id + "'></li>").css("cursor", "pointer")
+            var avengerName = $("<h1 class='text-center'>" + avengers[i].name + "</h1>")
+            var image = $("<img class='img-fluid rounded-4' src='" + avengers[i].url + "'>")
 
             listItem.on('click', function () {
                 controller.setCurrentAvenger(avengers[i])
                 controller.refreshSelectedView()
             })
-            $(avengersList).append(listItem);
+
+            $(".avengersList").append((listItem).append(image, avengerName))
         }
     }
 }
