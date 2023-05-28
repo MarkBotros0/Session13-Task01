@@ -133,13 +133,14 @@ var avengersListView = {
             var newUrl = $(".url-input").val()
             if (newUrl == "") {
                 newUrl = controller.getCurrentAvenger().url
+                console.log(newUrl)
             }
             var newCount = $(".count-input").val()
             if (newCount == "") {
                 newCount = controller.getCurrentAvenger().count
             }
             var id = controller.getCurrentAvenger().id
-            $("#" + id).text(newName)
+            $("#text" + id).text(newName)
             controller.updateCurrentAvenger(newName, newUrl, newCount)
             controller.toggleAdminView()
             $(".admin-section").toggle("d-none");
@@ -154,7 +155,7 @@ var avengersListView = {
 
         for (let i = 0; i < avengers.length; i++) {
             var listItem = $("<li class='mt-3' id='" + avengers[i].id + "'></li>").css("cursor", "pointer")
-            var avengerName = $("<h1 class='text-center'>" + avengers[i].name + "</h1>")
+            var avengerName = $("<h1 id='text"+avengers[i].id+"' class='text-center'>" + avengers[i].name + "</h1>")
             var image = $("<img class='img-fluid rounded-4' src='" + avengers[i].url + "'>")
 
             listItem.on('click', function () {
